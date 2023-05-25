@@ -171,15 +171,15 @@ This is so you get a fresh table contents every time you run the test suite.
 
 # file: spec/book_repository_spec.rb
 
-def reset_students_table
-  seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+def reset_book_table
+  seed_sql = File.read('spec/seeds_books.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'book_store' })
   connection.exec(seed_sql)
 end
 
-describe StudentRepository do
+describe BookRepository do
   before(:each) do
-    reset_students_table
+    reset_book_table
   end
 
   # (your tests will go here).
